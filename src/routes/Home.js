@@ -35,6 +35,7 @@ class Home extends React.Component{
     //영화 데이터 로딩 완료
     this.getMovies();
   }
+
   render(){
     //삼항연산자로 로딩 상태에 따라 문장 출력하기
     const {isLoading, movies} = this.state;

@@ -1,10 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import './Movie.css'
+import {Link} from 'react-router-dom';
 
-function Movie({title, rating, year, runtime, summary, poster, genres}){
+function Movie({id, title, rating, year, runtime, summary, poster, genres}){
     return(
         <div className='movie'>
+            <Link to={{
+                pathname:`/movie-detail/${id}`,
+                state:{year,title,summary,poster,genres,rating,runtime},
+            }}>
             <img src={poster} alt={title} title={title}/>
             <div className='movie__data'>
                 <h3 className='movie__title'>{title}</h3>
@@ -19,11 +24,13 @@ function Movie({title, rating, year, runtime, summary, poster, genres}){
                 <p className='movie__summary'>{summary.slice(0,180)}...</p>
                 {/* .slice(시작,끝) //끝자리는 포함되지 않음 */}
             </div>
+            </Link>
         </div>
     );
 }
 
 Movie.prototype = {
+    id: propTypes.number,
     genres: propTypes.arrayOf(propTypes.string).isRequired,
     title: propTypes.string.isRequired,
     rating: propTypes.number,

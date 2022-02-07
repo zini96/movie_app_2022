@@ -2,12 +2,13 @@ import React from 'react';
 import './About.css';
 
 function About(){
+    console.log()
     return(
         <div className='about__container'>
             <span>
-                "desc dddddddddddddddddddddddddddddd"
+                "about this page"
             </span>
-            <span>-dkfskldfj, 29292</span>
+            <span>movie-app</span>
         </div>
     );
 }
